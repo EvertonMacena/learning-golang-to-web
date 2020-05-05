@@ -1,0 +1,36 @@
+{{ define "body"}}
+<div class="row">
+    <div class="col-md-3">
+        <h2>Posts</h2>
+    </div>
+
+    <div class="col-md-6">
+        <div class="input-group h2">
+            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Posts">
+            <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/post/create" class="btn btn-primary pull-right h2">Novo</a>
+    </div>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+    </tr>
+    {{range $key, $value := . }}
+        <tr>
+            <td>{{$value.Id}}</td>
+            <td>{{$value.Title}}</td>
+            <td>{{$value.Body}}</td>
+        </tr>
+    {{end}}
+</table>
+{{end}}
